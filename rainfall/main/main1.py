@@ -8,12 +8,12 @@ import matplotlib.pyplot as plt
 
 # function call
 def cal():
-    print(var1.get())
     data = pd.read_csv("2a.csv")
     df = pd.DataFrame(data,
                       columns=['SUBDIVISION', 'YEAR', 'JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 'JUL', 'AUG', 'SEP',
                                'OCT', 'NOV', 'DEC'])
-
+    if (var1.get()=='123'):
+        showinfo("Invalid input", "please select a state")
     data= df.loc[df['SUBDIVISION'] == var1.get()]
 
     x = data['YEAR']
@@ -61,7 +61,7 @@ Radiobutton(root,text="Jun",variable=var, value="JUN",font="any 12",foreground="
 
 obj=['ANDAMAN & NICOBAR ISLANDS', 'ARUNACHAL PRADESH', 'ASSAM & MEGHALAYA', 'NAGA MANI MIZO TRIPURA', 'GANGETIC WEST BENGAL', 'ORISSA', 'JHARKHAND', 'BIHAR', 'EAST UTTAR PRADESH', 'WEST UTTAR PRADESH', 'UTTARAKHAND', 'HARYANA DELHI & CHANDIGARH', 'PUNJAB', 'HIMACHAL PRADESH', 'JAMMU & KASHMIR', 'WEST RAJASTHAN' , 'EAST RAJASTHAN', 'WEST MADHYA PRADESH', 'EAST MADHYA PRADESH', 'GUJARAT REGION', 'SAURASHTRA & KUTCH', 'KONKAN & GOA', 'MADHYA MAHARASHTRA', 'MATATHWADA', 'VIDARBHA', 'CHHATTISGARH', 'COASTAL ANDHRA PRADESH', 'TELANGANA', 'RAYALSEEMA', 'TAMIL NADU', 'COASTAL KARNATAKA', 'NORTH INTERIOR KARNATAKA', 'SOUTH INTERIOR KARNATAKA', 'KERALA', 'LAKSHADWEEP',]
 var1=StringVar()
-var.set('ANDAMAN & NICOBAR ISLANDS')
+var.set('123')
 
 OptionMenu(root,var1,*obj).grid(row=9,column=2)
 Label(root, text="      Select -> :)",font="any 13 bold",foreground="#853535").grid(row=9,column=1)
